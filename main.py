@@ -8,16 +8,16 @@ number = int(input('Введите число для поиска:'))
 start = int(input('''Какой способ вы хотите использовать для поиска?
 1-Итеративный
 2-Рекурсивный'''))
-def rec(a,b):
-    m = (b-a)//2
-    if (b-a)<=m:
-        return m,list[m]
-    elif number<=m:
-        b <= m
-        return rec(a,m)
+def rec(a, b):
+    m = (b-a + 1)//2
+    if (b-a + 1) == m:
+        return m, list[m]
+    elif number <= m:
+        b = m
+        return rec(a, b)
     else:
         a = m
-        return rec(m, b)
+        return rec(a, b)
 if start == 1:
     s = -1
     m = -1
