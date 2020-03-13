@@ -1,37 +1,54 @@
-vvod = int(input('Введите кол-во объектов в массиве'))
-list=[]
+import time
+import local as lc
+
+vvod = int(input(lc.VVOD))
+list = []
+a = 0
+c = vvod
 for i in range(vvod):
-    list.append(int(input('Введите новое число для добавления в массив')))
+    list.append(int(input(lc.LIST)))
 list.sort()
-print(list)
-number = int(input('Введите число для поиска:'))
-start = int(input('''Какой способ вы хотите использовать для поиска?
-1-Итеративный
-2-Рекурсивный'''))
-def rec(a, b):
-    m = (b-a + 1)//2
-    if (b-a + 1) == m:
-        return m, list[m]
-    elif number <= m:
-        b = m
-        return rec(a, b)
-    else:
-        a = m
-        return rec(a, b)
-if start == 1:
+number = int(input(lc.NUMBER))
+
+def iterat():
     s = -1
-    m = -1
+    mid = -1
     b = vvod
     while b > s + 1:
-        m = (s + b) // 2
-        if list[m] > number:
-            b = m
+        mid = (s + b) // 2
+        if list[mid] >= number:
+            b = mid
         else:
-            s = m
-    print(m,list[m])
-elif start == 2:
-    a = 0
-    b = vvod
-    print(rec(a,b))
+            s = mid
+    print(b)
+
+
+def time1():
+    now = time.time()
+    iterat()
+    print(lc.TIME1, time.time() - now)
+
+
+def rec(list, a, c):
+    m = (c + a) // 2
+    if number == list[m]:
+        return m
+    elif number <= list[m]:
+        return rec(list, a, m)
+    else:
+        return rec(list, m, c)
+
+
+def time2():
+    now = time.time()
+    print(rec(list, a, c))
+    print(lc.TIME2, time.time() - now)
+
+
+if number <= list[vvod - 1]:
+    time1()
+    time2()
 else:
-    print('ERROR')
+    print(lc.ERROR1)
+
+
