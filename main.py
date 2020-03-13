@@ -8,6 +8,16 @@ number = int(input('Введите число для поиска:'))
 start = int(input('''Какой способ вы хотите использовать для поиска?
 1-Итеративный
 2-Рекурсивный'''))
+def rec(a,b):
+    m = (b-a)//2
+    if (b-a)<=m:
+        return m,list[m]
+    elif number<=m:
+        b <= m
+        return rec(a,m)
+    else:
+        a = m
+        return rec(m, b)
 if start == 1:
     s = -1
     m = -1
@@ -20,6 +30,8 @@ if start == 1:
             s = m
     print(m,list[m])
 elif start == 2:
-    print('')
+    a = 0
+    b = vvod
+    print(rec(a,b))
 else:
     print('ERROR')
