@@ -10,7 +10,7 @@ for i in range(vvod):
 list.sort()
 number = int(input(lc.NUMBER))
 
-def iterat():
+def iterat():                                                # Function for iterative method
     s = -1
     mid = -1
     b = vvod
@@ -20,16 +20,16 @@ def iterat():
             b = mid
         else:
             s = mid
-    print(b)
+    print(lc.ITERAT, b)
 
 
-def time1():
+def time1():                                                  # Function for finding the running time of the iterative method
     now = time.time()
     iterat()
     print(lc.TIME1, time.time() - now)
 
 
-def rec(list, a, c):
+def rec(list, a, c):                                         # Function for recursive method
     m = (c + a) // 2
     if number == list[m]:
         return m
@@ -39,9 +39,9 @@ def rec(list, a, c):
         return rec(list, m, c)
 
 
-def time2():
+def time2():                                                 # Function for finding the running time of the recursive method
     now = time.time()
-    print(rec(list, a, c))
+    print(lc.REC, rec(list, a, c))
     print(lc.TIME2, time.time() - now)
 
 
