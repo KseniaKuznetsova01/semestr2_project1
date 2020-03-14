@@ -20,7 +20,10 @@ def iterat():                                                # Function for iter
             b = mid
         else:
             s = mid
-    print(lc.ITERAT, b)
+    if list[b] != number:
+        print(lc.ERROR1)
+    else:
+        print(lc.ITERAT, b)
 
 
 def time1():                                                  # Function for finding the running time of the iterative method
@@ -35,8 +38,10 @@ def rec(list, a, c):                                         # Function for recu
         return m
     elif number <= list[m]:
         return rec(list, a, m)
-    else:
+    elif number > list[m]:
         return rec(list, m, c)
+    else:
+        return lc.ERROR1
 
 
 def time2():                                                 # Function for finding the running time of the recursive method
